@@ -17,8 +17,8 @@ services:
     volumes:
       - .:/app:z
     env_file:
-      - ./.envs/.local/.django
-      - ./.envs/.local/.postgres
+      - ./.envs/.${ENV-local}/.django
+      - ./.envs/.${ENV-local}/.postgres
     ports:
       - '8000:8000'
     command: /start
@@ -33,7 +33,7 @@ services:
       - autoplanner_local_postgres_data:/var/lib/postgresql/data
       - autoplanner_local_postgres_data_backups:/backups
     env_file:
-      - ./.envs/.local/.postgres
+      - ./.envs/.${ENV-local}/.postgres
 
   docs:
     image: autoplanner_local_docs
@@ -42,7 +42,7 @@ services:
       context: .
       dockerfile: ./compose/local/docs/Dockerfile
     env_file:
-      - ./.envs/.local/.django
+      - ./.envs/.${ENV-local}/.django
     volumes:
       - ./docs:/docs:z
       - ./config:/app/config:z
