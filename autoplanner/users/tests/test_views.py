@@ -12,11 +12,7 @@ from django.utils.translation import gettext_lazy as _
 from autoplanner.users.forms import UserAdminChangeForm
 from autoplanner.users.models import User
 from autoplanner.users.tests.factories import UserFactory
-from autoplanner.users.views import (
-    UserRedirectView,
-    UserUpdateView,
-    user_detail_view,
-)
+from autoplanner.users.views import UserRedirectView, UserUpdateView, user_detail_view
 
 pytestmark = pytest.mark.django_db
 
