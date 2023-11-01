@@ -5,3 +5,4 @@ from dj_rest_auth.registration.views import SocialLoginView
 class GoogleOAuthLoginView(SocialLoginView):
     adapter_class = GoogleOAuth2Adapter
     client_class = OAuth2Client
+    callback_url = "postmessage"

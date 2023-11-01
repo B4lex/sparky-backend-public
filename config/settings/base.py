@@ -316,6 +316,7 @@ ACCOUNT_FORMS = {"signup": "autoplanner.users.forms.UserSignupForm"}
 SOCIALACCOUNT_ADAPTER = "autoplanner.users.adapters.SocialAccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/forms.html
 SOCIALACCOUNT_FORMS = {"signup": "autoplanner.users.forms.UserSocialSignupForm"}
+SOCIALACCOUNT_STORE_TOKENS = True
 
 # django-rest-framework
 # -------------------------------------------------------------------------------
