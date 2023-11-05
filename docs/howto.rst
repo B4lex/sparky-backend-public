@@ -4,7 +4,7 @@ How To - Project Documentation
 Get Started
 ----------------------------------------------------------------------
 
-Documentation can be written as rst files in `autoplanner/docs`.
+Documentation can be written as rst files in `sparky/docs`.
 
 
 To build and serve docs, use the commands::
