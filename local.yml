@@ -1,16 +1,16 @@
 version: '3'
 
 volumes:
-  autoplanner_local_postgres_data: {}
-  autoplanner_local_postgres_data_backups: {}
+  sparky_local_postgres_data: {}
+  sparky_local_postgres_data_backups: {}
 
 services:
   django: &django
     build:
       context: .
       dockerfile: ./compose/local/django/Dockerfile
-    image: autoplanner_local_django
-    container_name: autoplanner_local_django
+    image: sparky_local_django
+    container_name: sparky_local_django
     depends_on:
       - postgres
       - redis
@@ -27,17 +27,17 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/postgres/Dockerfile
-    image: autoplanner_production_postgres
-    container_name: autoplanner_local_postgres
+    image: sparky_production_postgres
+    container_name: sparky_local_postgres
     volumes:
-      - autoplanner_local_postgres_data:/var/lib/postgresql/data
-      - autoplanner_local_postgres_data_backups:/backups
+      - sparky_local_postgres_data:/var/lib/postgresql/data
+      - sparky_local_postgres_data_backups:/backups
     env_file:
       - ./.envs/.${ENV-local}/.postgres
 
   docs:
-    image: autoplanner_local_docs
-    container_name: autoplanner_local_docs
+    image: sparky_local_docs
+    container_name: sparky_local_docs
     build:
       context: .
       dockerfile: ./compose/local/docs/Dockerfile
@@ -46,19 +46,19 @@ services:
     volumes:
       - ./docs:/docs:z
       - ./config:/app/config:z
-      - ./autoplanner:/app/autoplanner:z
+      - ./sparky:/app/sparky:z
     ports:
       - '9000:9000'
     command: /start-docs
 
   redis:
     image: redis:6
-    container_name: autoplanner_local_redis
+    container_name: sparky_local_redis
 
   celeryworker:
     <<: *django
-    image: autoplanner_local_celeryworker
-    container_name: autoplanner_local_celeryworker
+    image: sparky_local_celeryworker
+    container_name: sparky_local_celeryworker
     depends_on:
       - redis
       - postgres
@@ -67,8 +67,8 @@ services:
 
   celerybeat:
     <<: *django
-    image: autoplanner_local_celerybeat
-    container_name: autoplanner_local_celerybeat
+    image: sparky_local_celerybeat
+    container_name: sparky_local_celerybeat
     depends_on:
       - redis
       - postgres
@@ -77,8 +77,8 @@ services:
 
   flower:
     <<: *django
-    image: autoplanner_local_flower
-    container_name: autoplanner_local_flower
+    image: sparky_local_flower
+    container_name: sparky_local_flower
     ports:
       - '5555:5555'
     command: /start-flower

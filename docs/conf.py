@@ -27,7 +27,7 @@ django.setup()
 
 # -- Project information -----------------------------------------------------
 
-project = "Autoplanner"
+project = "Sparky"
 copyright = """2023, Bedrock Inc."""
 author = "Bedrock Inc."
 

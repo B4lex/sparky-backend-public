@@ -2,6 +2,6 @@
 # ------------------------------------------------------------------------------
 POSTGRES_HOST=postgres
 POSTGRES_PORT=5432
-POSTGRES_DB=autoplanner
+POSTGRES_DB=sparky
 POSTGRES_USER=test
 POSTGRES_PASSWORD=test

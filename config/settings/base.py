@@ -6,8 +6,8 @@ from pathlib import Path
 import environ
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
-# autoplanner/
-APPS_DIR = BASE_DIR / "autoplanner"
+# sparky/
+APPS_DIR = BASE_DIR / "sparky"
 env = environ.Env()
 
 READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=False)
@@ -86,8 +86,8 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    "autoplanner.users",
-    "autoplanner.authorization",
+    "sparky.users",
+    "sparky.authorization",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -95,7 +95,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # MIGRATIONS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules
-MIGRATION_MODULES = {"sites": "autoplanner.contrib.sites.migrations"}
+MIGRATION_MODULES = {"sites": "sparky.contrib.sites.migrations"}
 
 # AUTHENTICATION
 # ------------------------------------------------------------------------------
@@ -189,7 +189,7 @@ TEMPLATES = [
                 "django.template.context_processors.static",
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
-                "autoplanner.users.context_processors.allauth_settings",
+                "sparky.users.context_processors.allauth_settings",
             ],
         },
     }
@@ -307,13 +307,13 @@ ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_ADAPTER = "autoplanner.users.adapters.AccountAdapter"
+ACCOUNT_ADAPTER = "sparky.users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/forms.html
-ACCOUNT_FORMS = {"signup": "autoplanner.users.forms.UserSignupForm"}
+ACCOUNT_FORMS = {"signup": "sparky.users.forms.UserSignupForm"}
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-SOCIALACCOUNT_ADAPTER = "autoplanner.users.adapters.SocialAccountAdapter"
+SOCIALACCOUNT_ADAPTER = "sparky.users.adapters.SocialAccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/forms.html
-SOCIALACCOUNT_FORMS = {"signup": "autoplanner.users.forms.UserSocialSignupForm"}
+SOCIALACCOUNT_FORMS = {"signup": "sparky.users.forms.UserSocialSignupForm"}
 SOCIALACCOUNT_STORE_TOKENS = True
 
 # django-rest-framework
@@ -343,8 +343,8 @@ CORS_URLS_REGEX = r"^/api/.*$"
 # By Default swagger ui is available only to admin user(s). You can change permission classes to change that
 # See more configuration options at https://drf-spectacular.readthedocs.io/en/latest/settings.html#settings
 SPECTACULAR_SETTINGS = {
-    "TITLE": "Autoplanner API",
-    "DESCRIPTION": "Documentation of API endpoints of Autoplanner",
+    "TITLE": "Sparky API",
+    "DESCRIPTION": "Documentation of API endpoints of Sparky",
     "VERSION": "1.0.0",
     "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAdminUser"],
     "POSTPROCESSING_HOOKS": [

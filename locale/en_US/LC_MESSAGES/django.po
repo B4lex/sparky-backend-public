@@ -1,4 +1,4 @@
-# Translations for the Autoplanner project
+# Translations for the Sparky project
 # Copyright (C) 2023 Bedrock Inc.
 # Bedrock Inc. <bedrock-inc.@example.com>, 2023.
 #
