@@ -29,7 +29,7 @@ known_first_party = [
     "config",
 ]
 skip = ["venv/"]
-skip_glob = ["**/migrations/*.py"]
+skip_glob = ["**/migrations/*.py", ".idea/*"]
 
 
 # ==== mypy ====
