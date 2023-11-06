@@ -3,7 +3,6 @@ from allauth.socialaccount.providers.oauth2.client import OAuth2Client
 from dj_rest_auth.registration.views import SocialLoginView
 from drf_spectacular.utils import extend_schema, inline_serializer
 from rest_framework import serializers, status
-from rest_framework.permissions import AllowAny
 
 
 @extend_schema(
@@ -19,4 +18,4 @@ class GoogleOAuthLoginView(SocialLoginView):
     adapter_class = GoogleOAuth2Adapter
     client_class = OAuth2Client
     callback_url = "postmessage"
-    permission_classes = [AllowAny]
+    authentication_classes = []
