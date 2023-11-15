@@ -40,3 +40,7 @@ class Activity(AbstractTimeStamped):
 
     def __str__(self) -> str:
         return self.title
+
+    @property
+    def is_global(self) -> bool:
+        return not self.owner
