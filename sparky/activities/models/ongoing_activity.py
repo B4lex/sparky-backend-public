@@ -12,9 +12,13 @@ class OngoingActivity(AbstractTimeStamped):
         "activities.Activity",
         on_delete=models.PROTECT,
         related_name="ongoing_activities",
-        verbose_name=("Ongoing activity"),
+        verbose_name=_("Ongoing activity"),
     )
+    enabled = models.BooleanField(_("Enabled"), default=True)
 
     class Meta:
         verbose_name = _("Ongoing activity")
         verbose_name_plural = _("Ongoing activities")
+
+    def __str__(self) -> str:
+        return f"Ongoing: {self.activity}"

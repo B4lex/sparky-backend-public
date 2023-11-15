@@ -37,3 +37,6 @@ class Activity(AbstractTimeStamped):
         verbose_name_plural = _("Activities")
         indexes = [models.Index(fields=["category"])]
         constraints = [models.UniqueConstraint(Lower("title"), "title", name="unique_title")]
+
+    def __str__(self) -> str:
+        return self.title

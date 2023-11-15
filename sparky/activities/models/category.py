@@ -10,3 +10,6 @@ class ActivityCategory(AbstractTimeStamped):
     class Meta:
         verbose_name = _("Activity category")
         verbose_name_plural = _("Activity categories")
+
+    def __str__(self):
+        return self.name
