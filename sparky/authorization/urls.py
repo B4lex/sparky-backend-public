@@ -7,5 +7,5 @@ app_name = "auth"
 
 urlpatterns = [
     path("google/", views.GoogleOAuthLoginView.as_view(), name="google"),
-    path("logout/", LogoutView.as_view(), name="logout")
+    path("logout/", LogoutView.as_view(), name="logout"),
 ]

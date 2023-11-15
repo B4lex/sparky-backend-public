@@ -21,7 +21,7 @@ class Activity(AbstractTimeStamped):
         null=True,
         blank=True,
     )
-    owner = models.ForeignKey("users.User", on_delete=models.PROTECT)
+    owner = models.ForeignKey("users.User", on_delete=models.PROTECT, null=True, blank=True)
     enabled_for = models.ManyToManyField(
         "users.User",
         through="activities.OngoingActivity",
