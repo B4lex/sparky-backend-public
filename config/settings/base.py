@@ -85,7 +85,7 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount.providers.google",
 ]
 
-LOCAL_APPS = ["sparky.core", "sparky.users", "sparky.authorization", "sparky.activities"]
+LOCAL_APPS = ["sparky.core", "sparky.users", "sparky.authorization", "sparky.activities", "sparky.integrations"]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
