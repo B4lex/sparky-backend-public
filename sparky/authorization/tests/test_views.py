@@ -33,7 +33,7 @@ class TestGoogleOAuthLoginView:
     def test_non_authorized_users_have_access(
         self, api_client, auth_code, auth_token, mocked_login, mocked_get_response, mocked_serializer_is_valid
     ):
-        response = api_client.post(reverse("api:auth:google"))
+        response = api_client.post(reverse("v1:auth:google"))
         assert response.status_code == status.HTTP_200_OK
         assert response.json() == {"key": auth_token}
         mocked_login.assert_called_once()

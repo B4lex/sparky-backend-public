@@ -1,7 +1,7 @@
 import pytest
 from rest_framework.test import APIRequestFactory
 
-from sparky.users.api.views import UserViewSet
+from sparky.users.api.v1.views import UserViewSet
 from sparky.users.models import User
 
 
@@ -29,6 +29,6 @@ class TestUserViewSet:
         response = view.me(request)  # type: ignore
 
         assert response.data == {
-            "url": f"http://testserver/api/users/{user.pk}/",
+            "id": user.id,
             "name": user.name,
         }
