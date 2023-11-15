@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 class AbstractTimeStamped(models.Model):
     updated_at = models.DateTimeField(_("Updated at"), auto_now=True)
-    created_at = models.DateTimeField(_("Created at"), default=timezone.now())
+    created_at = models.DateTimeField(_("Created at"), default=timezone.now)
 
     class Meta:
         abstract = True
