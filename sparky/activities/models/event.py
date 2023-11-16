@@ -2,11 +2,13 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from sparky.activities.constants import ActivityEventStatus
+from sparky.activities.models import Activity
 from sparky.core.models import AbstractTimeStamped
+from sparky.users.models import User
 
 
 class ActivityEvent(AbstractTimeStamped):
-    scheduled_on = models.DateField(_("Scheduled on"))
+    scheduled_on = models.DateTimeField(_("Scheduled on"))
     status = models.CharField(
         _("Status"),
         max_length=max(map(len, ActivityEventStatus.values)),
@@ -35,3 +37,11 @@ class ActivityEvent(AbstractTimeStamped):
     @property
     def is_completed(self) -> bool:
         return bool(self.completion_time)
+
+    @property
+    def user(self) -> User:
+        return self.ongoing_activity.user
+
+    @property
+    def template(self) -> Activity:
+        return self.ongoing_activity.activity

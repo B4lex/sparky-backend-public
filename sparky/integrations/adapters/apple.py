@@ -5,12 +5,18 @@ from sparky.integrations.adapters.abc import AbstractCalendarAdapter, CalendarEn
 
 class AppleCalendarAdapter(AbstractCalendarAdapter):
     def create_entry(
-        self, title: str, at: datetime, duration: timedelta, *, notify_user_before: timedelta | None = None
+        self, title: str, at: datetime, duration: timedelta, description: str | None = None, **kwargs
     ) -> CalendarEntryWrapper:
         ...
 
     def update_entry(
-        self, entry_id: str, *, title: str, at: datetime, duration: timedelta, **kwargs
+        self,
+        entry_id: str,
+        *,
+        title: str | None = None,
+        at: datetime | None = None,
+        duration: timedelta | None = None,
+        **kwargs,
     ) -> CalendarEntryWrapper:
         ...
 

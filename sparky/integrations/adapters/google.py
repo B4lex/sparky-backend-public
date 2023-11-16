@@ -28,16 +28,11 @@ class GoogleCalendarAdapter(AbstractCalendarAdapter):
         self.calendar_handle = GoogleCalendar(credentials=credentials)
 
     def create_entry(
-        self,
-        title: str,
-        at: datetime,
-        duration: timedelta,
-        *,
-        description: str | None = None,
+        self, title: str, at: datetime, duration: timedelta, description: str | None = None, **kwargs
     ) -> GoogleCalendarEntryWrapper:
         if not description:
             description = "Automatically created by Sparky."
-        event = Event(summary=title, start=at, end=at + duration, description=description)
+        event = Event(summary=title, start=at, end=at + duration, description=description, **kwargs)
         entry = self.calendar_handle.add_event(event)
         return GoogleCalendarEntryWrapper(entry)
 

@@ -15,12 +15,20 @@ class AbstractCalendarAdapter(metaclass=abc.ABCMeta):
     calendar_handle: object
 
     @abc.abstractmethod
-    def create_entry(self, title: str, at: datetime, duration: timedelta) -> CalendarEntryWrapper:
+    def create_entry(
+        self, title: str, at: datetime, duration: timedelta, description: str | None = None, **kwargs
+    ) -> CalendarEntryWrapper:
         ...
 
     @abc.abstractmethod
     def update_entry(
-        self, entry_id: str, *, title: str, at: datetime, duration: timedelta, **kwargs
+        self,
+        entry_id: str,
+        *,
+        title: str | None = None,
+        at: datetime | None = None,
+        duration: timedelta | None = None,
+        **kwargs,
     ) -> CalendarEntryWrapper:
         ...
 
