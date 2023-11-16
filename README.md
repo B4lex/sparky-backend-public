@@ -100,8 +100,8 @@ To run the tests, check your test coverage, and generate an HTML coverage report
 
 ## API Schema
 
-- OpenAPI specification: http://127.0.0.1/api/schema/
-- SwaggerUI: http://127.0.0.1/api/docs/
+- OpenAPI specification: http://127.0.0.1:8000/api/schema/
+- SwaggerUI: http://127.0.0.1:8000/api/docs/
 
 ## Celery
 
