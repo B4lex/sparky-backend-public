@@ -43,6 +43,11 @@ Adopted styleguide reference: https://github.com/HackSoftware/Django-Styleguide
 
 Moved to [settings](http://cookiecutter-django.readthedocs.io/en/latest/settings.html).
 
+## Pre-requisites
+
+In order to have application up and running, first you need to create local envfile in `.envs/.local/`.
+The simplest way to accomplish that is to copy `.envs/.test/*` envfiles to `.envs/.local/`.
+
 ## Basic Commands
 
 The project uses Docker Compose configuration in order to ease environment deployment everywhere.
