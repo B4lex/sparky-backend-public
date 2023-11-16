@@ -11,7 +11,7 @@ It is planned to integrate with various notification systems, such as Google Cal
 
 The mission of this app is to automate people's activities and organization routines as much as possible to ease their daily lives.
 
-## This repository contains Backend application
+## This repository contains the Back-end application
 
 [![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter-django/)
 [![Black code style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
@@ -25,8 +25,8 @@ The mission of this app is to automate people's activities and organization rout
     │   └── views.py [Views for Google OAuth flow]
     ├── activities/
     │   ├── api/
-    │   │   └── v1/ [URLs, views and serializer to modify activities]
-    │   ├── models/ [Model classes related to the activities and their managment]
+    │   │   └── v1/ [URLs, views, and serializer to modify activities]
+    │   ├── models/ [Model classes related to the activities and their management]
     │   ├── selectors/ [DB queries related to the activities]
     │   └── services/ [Activities lifecycle management]
     ├── core/ [Project-scoped entities, general utility logic]
@@ -35,7 +35,7 @@ The mission of this app is to automate people's activities and organization rout
     │   ├── models/ [Models encapsulating external integration entities]
     │   └── services/ [Logic layer between models and adapters]
     ├── users/ [User management logic]
-    └── utils/ [Contribution project scoped utilities]
+    └── utils/ [Contribution project-scoped utilities]
 ```
 Adopted styleguide reference: https://github.com/HackSoftware/Django-Styleguide
 
@@ -63,7 +63,7 @@ Now, you should have all the project services up and running.
 All the project-related command are needed to be executed out of Docker container.
 To do that you need run it along with the following prefix:
 
-    $ docker compose run --rm django <command_to_execute>
+    $ docker compose -f local.yml run --rm django <command_to_execute>
 
 ### Setting Up Your Users
 
@@ -79,19 +79,19 @@ For convenience, you can keep your normal user logged in on Chrome and your supe
 
 Running type checks with mypy:
 
-    $ docker compose run --rm django mypy sparky
+    $ docker compose -f local.yml run --rm django mypy sparky
 
 ### Test coverage
 
 To run the tests, check your test coverage, and generate an HTML coverage report:
 
-    $ docker compose run --rm django coverage run -m pytest
-    $ docker compose run --rm django coverage html
-    $ docker compose run --rm django open htmlcov/index.html
+    $ docker compose -f local.yml run --rm django coverage run -m pytest
+    $ docker compose -f local.yml run --rm django coverage html
+    $ docker compose -f local.yml run --rm django open htmlcov/index.html
 
 #### Running tests with pytest
 
-    $ docker compose run --rm django pytest
+    $ docker compose -f local.yml run --rm django pytest
 
 ## API Schema
 
