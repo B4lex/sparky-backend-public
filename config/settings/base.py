@@ -355,3 +355,9 @@ SPECTACULAR_SETTINGS = {
 }
 # Your stuff...
 # ------------------------------------------------------------------------------
+GOOGLE_OAUTH_CALENDAR_SCOPE = "https://www.googleapis.com/auth/calendar"
+SOCIALACCOUNT_PROVIDERS = {
+    "google": {
+        "SCOPE": ["profile", "email", GOOGLE_OAUTH_CALENDAR_SCOPE],
+    }
+}

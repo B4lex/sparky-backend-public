@@ -1,23 +1,21 @@
-from datetime import time, timedelta
+from datetime import datetime, timedelta
 
 from sparky.integrations.adapters.abc import AbstractCalendarAdapter, CalendarEntryWrapper
 
 
 class AppleCalendarAdapter(AbstractCalendarAdapter):
-    @classmethod
     def create_entry(
-        cls, title: str, start_time: time, duration: timedelta, *, notify_user_before: timedelta | None = None
+        self, title: str, at: datetime, duration: timedelta, *, notify_user_before: timedelta | None = None
     ) -> CalendarEntryWrapper:
         ...
 
-    @classmethod
-    def update_entry(cls) -> CalendarEntryWrapper:
+    def update_entry(
+        self, entry_id: str, *, title: str, at: datetime, duration: timedelta, **kwargs
+    ) -> CalendarEntryWrapper:
         ...
 
-    @classmethod
-    def delete_entry(cls, entry_id: str) -> None:
+    def delete_entry(self, entry_id: str) -> None:
         ...
 
-    @classmethod
-    def get_entry_by_identifier(cls, entry_id: str) -> CalendarEntryWrapper:
+    def get_entry_by_identifier(self, entry_id: str) -> CalendarEntryWrapper:
         ...

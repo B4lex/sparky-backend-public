@@ -1,5 +1,5 @@
 import abc
-from datetime import time, timedelta
+from datetime import datetime, timedelta
 
 
 class CalendarEntryWrapper(metaclass=abc.ABCMeta):
@@ -14,24 +14,20 @@ class CalendarEntryWrapper(metaclass=abc.ABCMeta):
 class AbstractCalendarAdapter(metaclass=abc.ABCMeta):
     calendar_handle: object
 
-    @classmethod
     @abc.abstractmethod
-    def create_entry(
-        cls, title: str, start_time: time, duration: timedelta, *, notify_user_before: timedelta | None = None
+    def create_entry(self, title: str, at: datetime, duration: timedelta) -> CalendarEntryWrapper:
+        ...
+
+    @abc.abstractmethod
+    def update_entry(
+        self, entry_id: str, *, title: str, at: datetime, duration: timedelta, **kwargs
     ) -> CalendarEntryWrapper:
         ...
 
-    @classmethod
     @abc.abstractmethod
-    def update_entry(cls) -> CalendarEntryWrapper:
+    def delete_entry(self, entry_id: str) -> None:
         ...
 
-    @classmethod
     @abc.abstractmethod
-    def delete_entry(cls, entry_id: str) -> None:
-        ...
-
-    @classmethod
-    @abc.abstractmethod
-    def get_entry_by_identifier(cls, entry_id: str) -> CalendarEntryWrapper:
+    def get_entry_by_identifier(self, entry_id: str) -> CalendarEntryWrapper:
         ...
