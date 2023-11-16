@@ -96,7 +96,7 @@ class Migration(migrations.Migration):
                 "abstract": False,
             },
             managers=[
-                ("objects", sparky.users.models.UserManager()),
+                ("objects", sparky.users.models.user.UserManager()),
             ],
         ),
     ]

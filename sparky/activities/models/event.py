@@ -23,7 +23,7 @@ class ActivityEvent(AbstractTimeStamped):
         "activities.OngoingActivity",
         on_delete=models.CASCADE,
         verbose_name=_("Ongoing activity"),
-        related_name="completions",
+        related_name="events",
     )
 
     class Meta:

@@ -1,8 +1,11 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from sparky.core.models import AbstractTimeStamped
 from sparky.integrations.constants import IntegrationType
+
+User = get_user_model()
 
 
 class CalendarEntry(AbstractTimeStamped):
@@ -17,7 +20,7 @@ class CalendarEntry(AbstractTimeStamped):
         unique=True,
         help_text=_("Unique identifier of the calendar entry in the external system."),
     )
-    activity_completion = models.ForeignKey(
+    activity_event = models.ForeignKey(
         "activities.ActivityEvent",
         on_delete=models.CASCADE,
         related_name="calendar_entries",
@@ -25,4 +28,8 @@ class CalendarEntry(AbstractTimeStamped):
     )
 
     def __str__(self) -> str:
-        return f"{self.integration_type} entry for {self.activity_completion}"
+        return f"{self.integration_type} entry for {self.activity_event}"
+
+    @property
+    def user(self) -> User:
+        return self.activity_event.ongoing_activity.user

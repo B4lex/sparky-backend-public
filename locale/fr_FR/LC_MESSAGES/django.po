@@ -326,7 +326,7 @@ msgstr "Utilisateurs"
 msgid "This username has already been taken."
 msgstr "Ce nom d'utilisateur est déjà pris."
 
-#: sparky/users/models.py:15
+#: sparky/users/models/user.py:15
 msgid "Name of User"
 msgstr "Nom de l'utilisateur"
 
