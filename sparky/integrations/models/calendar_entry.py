@@ -18,7 +18,7 @@ class CalendarEntry(AbstractTimeStamped):
         help_text=_("Unique identifier of the calendar entry in the external system."),
     )
     activity_completion = models.ForeignKey(
-        "activities.ActivityCompletion",
+        "activities.ActivityEvent",
         on_delete=models.CASCADE,
         related_name="calendar_entries",
         verbose_name=_("Activity completion"),
