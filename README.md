@@ -29,11 +29,13 @@ The mission of this app is to automate people's activities and organization rout
     │   ├── models/ [Model classes related to the activities and their management]
     │   ├── selectors/ [DB queries related to the activities]
     │   └── services/ [Activities lifecycle management]
+    │       └── tests/ [Test cases for the services]
     ├── core/ [Project-scoped entities, general utility logic]
     ├── integrations/
     │   ├── adapters/ [Contains adapters implementing single interface interaction with third-party integrations (e.g. Google Calendar)]
     │   ├── models/ [Models encapsulating external integration entities]
     │   └── services/ [Logic layer between models and adapters]
+    │       └── tests/ [Test cases for the services]
     ├── users/ [User management logic]
     └── utils/ [Contribution project-scoped utilities]
 ```
