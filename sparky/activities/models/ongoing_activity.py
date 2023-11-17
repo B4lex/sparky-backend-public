@@ -5,6 +5,15 @@ from sparky.core.models import AbstractTimeStamped
 
 
 class OngoingActivity(AbstractTimeStamped):
+    """
+    Through-model for Activity <-> User M2M relation.
+    Represents pool of activities taken by user
+
+    Relates to:
+    - FK: User - user that activity is added to their pool
+    - FK: Activity - activity template that is added to user
+    """
+
     user = models.ForeignKey(
         "users.User", on_delete=models.CASCADE, related_name="ongoing_activities", verbose_name=_("User")
     )

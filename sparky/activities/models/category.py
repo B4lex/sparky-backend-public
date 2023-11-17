@@ -5,6 +5,10 @@ from sparky.core.models import AbstractTimeStamped
 
 
 class ActivityCategory(AbstractTimeStamped):
+    """
+    Category of Activity
+    """
+
     name = models.CharField(_("Name"), max_length=256)
 
     class Meta:

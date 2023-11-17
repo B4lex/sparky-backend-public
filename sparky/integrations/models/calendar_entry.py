@@ -10,7 +10,10 @@ User = get_user_model()
 
 class CalendarEntry(AbstractTimeStamped):
     """
-    Describes entity in the external integration (e.g. Google Calendar)
+    Describes event in the external integrations (e.g. Google Calendar)
+
+    Relates to:
+    - FK: ActivityEvent
     """
 
     integration_type = models.CharField(_("Integration type"), max_length=max(map(len, IntegrationType.values)))

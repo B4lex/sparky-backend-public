@@ -8,6 +8,14 @@ from sparky.users.models import User
 
 
 class ActivityEvent(AbstractTimeStamped):
+    """
+    Represents particular event that has been scheduled for OngoingActivity.
+    Holds information about current event state for the user
+
+    Relates to:
+    - FK: OngoingActivity - activity in the pool
+    """
+
     scheduled_on = models.DateTimeField(_("Scheduled on"))
     status = models.CharField(
         _("Status"),

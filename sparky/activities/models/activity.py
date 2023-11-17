@@ -8,6 +8,16 @@ from sparky.core.models import AbstractTimeStamped
 
 
 class Activity(AbstractTimeStamped):
+    """
+    Represents template for the activity which can
+    be taken in to activities pool for user
+
+    Relates to:
+    - FK: ActivityCategory
+    - FK: User - who has created activity
+    - M2M: User - who has taken the activity into their pool
+    """
+
     title = models.CharField(_("Title"), max_length=256)
     description = models.TextField(_("Description"), blank=True)
     weight = models.PositiveIntegerField(

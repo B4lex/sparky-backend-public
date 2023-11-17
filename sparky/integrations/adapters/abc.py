@@ -12,6 +12,13 @@ class CalendarEntryWrapper(metaclass=abc.ABCMeta):
 
 
 class AbstractCalendarAdapter(metaclass=abc.ABCMeta):
+    """
+    Interface that should be implemented by all the calendar adapters
+
+    Note: calendar adapters are used in services to interact with external
+    integrations for event management
+    """
+
     calendar_handle: object
 
     @abc.abstractmethod
