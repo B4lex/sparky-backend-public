@@ -26,7 +26,7 @@ class ActivityWriteSerializer(serializers.ModelSerializer):
         ]
 
 
-class ActivityReadSerializer(serializers.ModelSerializer):
+class ActivitySerializer(serializers.ModelSerializer):
     category = ActivityCategorySerializer()
 
     class Meta:
