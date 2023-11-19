@@ -54,6 +54,8 @@ class GoogleCalendarAdapter(AbstractCalendarAdapter):
             event.start = at
         if duration:
             event.end = event.start + duration
+        if description:
+            event.description = description
 
         # Updating extra properties
         for k, v in kwargs.items():
